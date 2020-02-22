@@ -5,8 +5,8 @@ pub struct ArrayQueue {
 }
 
 impl ArrayQueue {
-    pub fn new() -> ArrayQueue {
+    pub fn new() -> Self {
         let ary = Vec::new();
-        ArrayQueue { a: ary, j: 0, n: 0 }
+        Self { a: ary, j: 0, n: 0 }
     }
 }
