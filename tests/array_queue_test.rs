@@ -38,7 +38,7 @@ mod add_method_tests {
         aq.add(2);
         aq.add(3);
 
-        let expected = vec![1, 2, 3];
+        let expected = vec![1, 2, 3, 0];
         assert_eq!(aq.a, expected);
     }
 }
