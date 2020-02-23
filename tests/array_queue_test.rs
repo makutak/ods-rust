@@ -3,7 +3,7 @@ mod new_method_tests {
     use ods_rust::array_queue::*;
     #[test]
     fn a_is_empty_vector() {
-        let mut aq = ArrayQueue::new();
+        let aq = ArrayQueue::new();
         assert!(aq.a.is_empty());
     }
 
