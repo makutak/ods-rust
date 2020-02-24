@@ -38,8 +38,7 @@ mod add_method_tests {
         aq.add(2);
         aq.add(3);
         assert_eq!(aq.a, [1, 2, 3, 0]);
-        //assert_eq!(aq.n, 3);
-        assert_eq!(aq.n, 100);
+        assert_eq!(aq.n, 3);
     }
 }
 
