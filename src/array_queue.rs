@@ -1,5 +1,6 @@
 use std::cmp::max;
 
+#[derive(Debug)]
 pub struct ArrayQueue {
     pub a: Vec<u32>,
     pub j: usize,
@@ -21,6 +22,10 @@ impl ArrayQueue {
         self.a[(self.j + self.n) % current_len] = x;
         self.n += 1;
         true
+    }
+
+    pub fn remove(&mut self) -> u32 {
+        10
     }
 
     pub fn resize(&mut self) {
