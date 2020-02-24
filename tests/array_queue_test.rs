@@ -85,4 +85,11 @@ mod remove_method_tests {
         assert_eq!(d, 4);
         assert_eq!(aq.n, 0);
     }
+
+    #[test]
+    #[should_panic]
+    fn if_queue_size_is_zero_raise_no_such_error() {
+        let mut aq = ArrayQueue::new();
+        aq.remove();
+    }
 }
