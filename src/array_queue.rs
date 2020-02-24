@@ -25,15 +25,20 @@ impl ArrayQueue {
     }
 
     pub fn remove(&mut self) -> u32 {
-        let x = self.a[self.j];
-        self.j = (self.j + 1) % self.a.len();;
-        self.n -= 1;
+        match self.n {
+            n if n == 0 => panic!("No such Element!!"),
+            _ => {
+                let x = self.a[self.j];
+                self.j = (self.j + 1) % self.a.len();;
+                self.n -= 1;
 
-        if self.a.len() >= (3 * self.n) {
-            self.resize();
+                if self.a.len() >= (3 * self.n) {
+                    self.resize();
+                }
+
+                x
+            }
         }
-
-        x
     }
 
     pub fn resize(&mut self) {
