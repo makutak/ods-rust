@@ -25,14 +25,21 @@ impl ArrayQueue {
     }
 
     pub fn remove(&mut self) -> u32 {
-        10
+        let x = self.a[self.j];
+        self.j = (self.j + 1) % self.a.len();;
+        self.n -= 1;
+
+        if self.a.len() >= (3 * self.n) {
+            self.resize();
+        }
+
+        x
     }
 
     pub fn resize(&mut self) {
-        let current_len = self.a.len();
-        let mut b = vec![0; max(1, 2 * self.n)];
+        let mut b = vec![0; max(1, self.n * 2)];
         for k in 0..self.n {
-            b[k] = self.a[(self.j + k) % current_len];
+            b[k] = self.a[(self.j + k) % self.a.len()];
         }
         self.a = b;
         self.j = 0;

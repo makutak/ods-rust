@@ -27,8 +27,8 @@ mod add_method_tests {
     fn can_add_value() {
         let mut aq = ArrayQueue::new();
         aq.add(1);
-        let expected = vec![1];
-        assert_eq!(aq.a, expected);
+        assert_eq!(aq.a, [1]);
+        assert_eq!(aq.n, 1);
     }
 
     #[test]
@@ -37,8 +37,52 @@ mod add_method_tests {
         aq.add(1);
         aq.add(2);
         aq.add(3);
+        assert_eq!(aq.a, [1, 2, 3, 0]);
+        assert_eq!(aq.n, 3);
+    }
+}
 
-        let expected = vec![1, 2, 3, 0];
-        assert_eq!(aq.a, expected);
+#[cfg(test)]
+mod remove_method_tests {
+    use ods_rust::array_queue::*;
+
+    #[test]
+    fn can_remove_value() {
+        let mut aq = ArrayQueue::new();
+        aq.add(1);
+        assert_eq!(aq.a, [1]);
+        assert_eq!(aq.n, 1);
+
+        let a = aq.remove();
+        assert_eq!(a, 1);
+        assert_eq!(aq.a, [0]);
+        assert_eq!(aq.n, 0);
+    }
+
+    #[test]
+    fn can_remove_first_value_of_array() {
+        let mut aq = ArrayQueue::new();
+        aq.add(1);
+        aq.add(2);
+        aq.add(3);
+        aq.add(4);
+        assert_eq!(aq.a, vec![1, 2, 3, 4]);
+        assert_eq!(aq.n, 4);
+
+        let a = aq.remove();
+        assert_eq!(a, 1);
+        assert_eq!(aq.n, 3);
+
+        let b = aq.remove();
+        assert_eq!(b, 2);
+        assert_eq!(aq.n, 2);
+
+        let c = aq.remove();
+        assert_eq!(c, 3);
+        assert_eq!(aq.n, 1);
+
+        let d = aq.remove();
+        assert_eq!(d, 4);
+        assert_eq!(aq.n, 0);
     }
 }
