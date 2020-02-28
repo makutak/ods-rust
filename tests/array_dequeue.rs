@@ -30,4 +30,11 @@ mod get_method_tests {
         ad.add(2);
         assert_eq!(ad.get(0), 1);
     }
+
+    #[test]
+    #[should_panic]
+    fn get_out_of_range_indexed_value() {
+        let mut ad = ArrayDequeue::new();
+        ad.get(10);
+    }
 }
