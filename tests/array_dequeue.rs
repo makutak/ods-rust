@@ -38,3 +38,22 @@ mod get_method_tests {
         ad.get(10);
     }
 }
+
+#[cfg(test)]
+mod set_method_tests {
+    use ods_rust::array_dequeue::*;
+    #[test]
+    fn set_value() {
+        let mut ad = ArrayDequeue::new();
+        ad.add(1);
+        ad.add(2);
+        assert_eq!(ad.set(0, 10), 10);
+    }
+
+    #[test]
+    #[should_panic]
+    fn set_out_of_range_indexed_value() {
+        let mut ad = ArrayDequeue::new();
+        ad.set(10, 10);
+    }
+}
