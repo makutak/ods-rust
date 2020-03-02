@@ -16,7 +16,10 @@ impl ArrayDequeue {
     }
 
     pub fn set(&mut self, i: usize, x: u32) -> u32 {
-        x
+        let idx = (self.j) + i % self.a.len();
+        let y = self.a[idx];
+        self.a[idx] = x;
+        y
     }
 
     pub fn add(&mut self, x: u32) {}
