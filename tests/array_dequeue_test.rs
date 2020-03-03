@@ -26,8 +26,8 @@ mod get_method_tests {
     #[test]
     fn get_indexed_value() {
         let mut ad = ArrayDequeue::new();
-        ad.add(1);
-        ad.add(2);
+        ad.add(0, 1);
+        ad.add(1, 2);
         assert_eq!(ad.get(0), 1);
     }
 
@@ -45,8 +45,8 @@ mod set_method_tests {
     #[test]
     fn set_value() {
         let mut ad = ArrayDequeue::new();
-        ad.add(4);
-        ad.add(8);
+        ad.add(0, 4);
+        ad.add(1, 8);
 
         ad.set(0, 10);
         ad.set(1, 1);

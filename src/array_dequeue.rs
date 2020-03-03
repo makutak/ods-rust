@@ -22,5 +22,5 @@ impl ArrayDequeue {
         y
     }
 
-    pub fn add(&mut self, x: u32) {}
+    pub fn add(&mut self, i: usize, x: u32) {}
 }
