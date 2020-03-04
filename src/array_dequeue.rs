@@ -23,4 +23,8 @@ impl ArrayDequeue {
     }
 
     pub fn add(&mut self, i: usize, x: u32) {}
+
+    pub fn remove(&mut self, i: usize) {}
+
+    pub fn resize(&mut self) {}
 }
