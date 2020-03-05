@@ -1,3 +1,5 @@
+use std::cmp::max;
+
 #[derive(Debug)]
 pub struct ArrayDequeue {
     pub a: Vec<u32>,
@@ -22,9 +24,34 @@ impl ArrayDequeue {
         y
     }
 
-    pub fn add(&mut self, i: usize, x: u32) {}
+    pub fn add(&mut self, i: usize, x: u32) {
+        if self.n == self.a.len() {
+            self.resize()
+        }
+
+        let current_len = self.a.len();
+        if i < self.n / 2 {
+            self.j = (self.j - 1) % self.a.len();
+            for k in 0..i {
+                self.a[(self.j + k) % current_len] = self.a[(self.j + k - 1) % current_len]
+            }
+        } else {
+            for k in (i..self.n).rev() {
+                self.a[(self.j + k) % current_len] = self.a[(self.j + k - 1) % current_len];
+            }
+        }
+        self.a[(self.j + i) % current_len] = x;
+        self.n += 1;
+    }
 
     pub fn remove(&mut self, i: usize) {}
 
-    pub fn resize(&mut self) {}
+    pub fn resize(&mut self) {
+        let mut b = vec![0; max(1, self.n * 2)];
+        for k in 0..self.n {
+            b[k] = self.a[(self.j + k) % self.a.len()];
+        }
+        self.a = b;
+        self.j = 0;
+    }
 }
