@@ -40,6 +40,7 @@ impl ArrayDequeue {
                 self.a[(self.j + k) % current_len] = self.a[(self.j + k - 1) % current_len];
             }
         }
+
         self.a[(self.j + i) % current_len] = x;
         self.n += 1;
     }
