@@ -47,6 +47,8 @@ mod set_method_tests {
         let mut ad = ArrayDequeue::new();
         ad.add(0, 4);
         ad.add(1, 8);
+        assert_eq!(ad.a[0], 4);
+        assert_eq!(ad.a[1], 8);
 
         ad.set(0, 10);
         ad.set(1, 1);
