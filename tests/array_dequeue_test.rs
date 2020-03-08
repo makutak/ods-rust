@@ -63,3 +63,32 @@ mod set_method_tests {
         ad.set(10, 10);
     }
 }
+
+#[cfg(test)]
+mod add_method_tests {
+    use ods_rust::array_dequeue::*;
+    #[test]
+    fn add_value() {
+        let mut ad = ArrayDequeue::new();
+        ad.add(0, 4);
+        ad.add(1, 8);
+        assert_eq!(ad.a[0], 4);
+        assert_eq!(ad.a[1], 8);
+    }
+}
+
+#[cfg(test)]
+mod remove_method_tests {
+    use ods_rust::array_dequeue::*;
+    #[test]
+    fn remove_value() {
+        let mut ad = ArrayDequeue::new();
+        ad.add(0, 4);
+        ad.add(1, 8);
+        assert_eq!(ad.a[0], 4);
+        assert_eq!(ad.a[1], 8);
+
+        assert_eq!(ad.remove(0), 4);
+        assert_eq!(ad.remove(0), 8);
+    }
+}
