@@ -13,4 +13,8 @@ impl DualArrayDequeue {
             back: back,
         }
     }
+
+    pub fn size(&mut self) -> usize {
+        self.front.len() + self.back.len()
+    }
 }

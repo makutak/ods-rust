@@ -8,3 +8,12 @@ mod new_method_tests {
         assert!(daq.back.is_empty());
     }
 }
+
+mod size_method_tests {
+    use ods_rust::dual_array_dequeue::*;
+    #[test]
+    fn size_is_sum_of_front_and_back() {
+        let mut daq = DualArrayDequeue::new();
+        assert_eq!(daq.size(), 0);
+    }
+}
