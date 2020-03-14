@@ -1,13 +1,14 @@
-#[derive(Debug)]
+use super::array_stack::*;
+
 pub struct DualArrayDequeue {
-    pub front: Vec<u32>,
-    pub back: Vec<u32>,
+    pub front: ArrayStack,
+    pub back: ArrayStack,
 }
 
 impl DualArrayDequeue {
     pub fn new() -> Self {
-        let front = Vec::new();
-        let back = Vec::new();
+        let front = ArrayStack::new();
+        let back = ArrayStack::new();
         Self {
             front: front,
             back: back,
@@ -15,8 +16,6 @@ impl DualArrayDequeue {
     }
 
     pub fn size(&mut self) -> usize {
-        self.front.len() + self.back.len()
+        self.front.size() + self.back.size()
     }
-
-    pub fn get(&mut self, i: usize) {}
 }

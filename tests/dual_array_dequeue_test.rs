@@ -4,8 +4,8 @@ mod new_method_tests {
     #[test]
     fn front_and_back_are_empty() {
         let daq = DualArrayDequeue::new();
-        assert!(daq.front.is_empty());
-        assert!(daq.back.is_empty());
+        assert_eq!(daq.front.size(), 0);
+        assert_eq!(daq.back.size(), 0);
     }
 }
 
