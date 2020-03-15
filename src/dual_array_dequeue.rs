@@ -18,4 +18,12 @@ impl DualArrayDequeue {
     pub fn size(&mut self) -> usize {
         self.front.size() + self.back.size()
     }
+
+    pub fn get(&mut self, i: usize) -> u32 {
+        if i < self.front.size() {
+            self.front.get(self.front.size() - i - 1)
+        } else {
+            self.back.get(i - self.front.size())
+        }
+    }
 }
