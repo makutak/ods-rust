@@ -17,3 +17,12 @@ mod size_method_tests {
         assert_eq!(daq.size(), 0);
     }
 }
+
+mod get_method_test {
+    use ods_rust::dual_array_dequeue::*;
+    #[test]
+    fn size_is_sum_of_front_and_back() {
+        let mut daq = DualArrayDequeue::new();
+        assert_eq!(daq.get(0), 0);
+    }
+}
