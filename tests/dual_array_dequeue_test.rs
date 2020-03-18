@@ -21,8 +21,17 @@ mod size_method_tests {
 mod get_method_test {
     use ods_rust::dual_array_dequeue::*;
     #[test]
-    fn size_is_sum_of_front_and_back() {
+    fn get_selecteed_value() {
         let mut daq = DualArrayDequeue::new();
         assert_eq!(daq.get(0), 0);
+    }
+}
+
+mod set_method_test {
+    use ods_rust::dual_array_dequeue::*;
+    #[test]
+    fn set_selected_value() {
+        let mut daq = DualArrayDequeue::new();
+        assert_eq!(daq.set(0, 1), 1);
     }
 }
