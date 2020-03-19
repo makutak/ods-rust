@@ -23,7 +23,8 @@ mod get_method_test {
     #[test]
     fn get_selecteed_value() {
         let mut daq = DualArrayDequeue::new();
-        assert_eq!(daq.get(0), 0);
+        daq.add(0, 1);
+        assert_eq!(daq.get(0), 1);
     }
 }
 
@@ -32,6 +33,18 @@ mod set_method_test {
     #[test]
     fn set_selected_value() {
         let mut daq = DualArrayDequeue::new();
+        daq.add(0, 777);
+        assert_eq!(daq.get(0), 777);
         assert_eq!(daq.set(0, 1), 1);
+    }
+}
+
+mod add_method_test {
+    use ods_rust::dual_array_dequeue::*;
+    #[test]
+    fn add_selected_value() {
+        let mut daq = DualArrayDequeue::new();
+        daq.add(0, 1);
+        assert_eq!(daq.size(), 1);
     }
 }
