@@ -34,4 +34,12 @@ impl DualArrayDequeue {
             self.front.set(i - self.front.size(), x)
         }
     }
+
+    pub fn add(&mut self, i: usize, x: u32) {
+        if (i < self.front.size()) {
+            self.front.add(self.front.size() - i, x);
+        } else {
+            self.back.add(self.front.size(), x);
+        }
+    }
 }
