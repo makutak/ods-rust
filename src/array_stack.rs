@@ -1,5 +1,5 @@
 use std::cmp::max;
-
+#[derive(Debug)]
 pub struct ArrayStack {
     pub a: Vec<u32>,
     pub n: usize,
