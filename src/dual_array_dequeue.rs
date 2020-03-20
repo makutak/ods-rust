@@ -1,5 +1,5 @@
 use super::array_stack::*;
-
+#[derive(Debug)]
 pub struct DualArrayDequeue {
     pub front: ArrayStack,
     pub back: ArrayStack,
@@ -31,7 +31,7 @@ impl DualArrayDequeue {
         if i < self.front.size() {
             self.front.set(self.front.size() - i - 1, x)
         } else {
-            self.front.set(i - self.front.size(), x)
+            self.back.set(i - self.front.size(), x)
         }
     }
 

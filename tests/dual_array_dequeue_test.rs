@@ -35,7 +35,8 @@ mod set_method_test {
         let mut daq = DualArrayDequeue::new();
         daq.add(0, 777);
         assert_eq!(daq.get(0), 777);
-        assert_eq!(daq.set(0, 1), 1);
+        daq.set(0, 1);
+        assert_eq!(daq.get(0), 1);
     }
 }
 
