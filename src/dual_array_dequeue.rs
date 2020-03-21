@@ -36,10 +36,14 @@ impl DualArrayDequeue {
     }
 
     pub fn add(&mut self, i: usize, x: u32) {
-        if (i < self.front.size()) {
+        if i < self.front.size() {
             self.front.add(self.front.size() - i, x);
         } else {
             self.back.add(self.front.size(), x);
         }
+
+        self.balance();
     }
+
+    pub fn balance(&mut self) {}
 }
