@@ -45,5 +45,7 @@ impl DualArrayDequeue {
         self.balance();
     }
 
+    pub fn remove(&mut self, i: usize) {}
+
     pub fn balance(&mut self) {}
 }
