@@ -49,3 +49,15 @@ mod add_method_test {
         assert_eq!(daq.size(), 1);
     }
 }
+
+mod remove_method_test {
+    use ods_rust::dual_array_dequeue::*;
+    #[test]
+    fn remove_selected_value() {
+        let mut daq = DualArrayDequeue::new();
+        daq.add(0, 1);
+        assert_eq!(daq.size(), 1);
+        let ret = daq.remove(0);
+        assert_eq!(ret, 1);
+    }
+}
