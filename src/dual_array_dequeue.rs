@@ -53,6 +53,7 @@ impl DualArrayDequeue {
             x = self.front.remove(self.front.size() - i - 1);
         } else {
             println!("i < self.front.size(): {}", i < self.front.size());
+            println!("i - self.front.size(): {})", i - self.front.size());
             x = self.back.remove(i - self.front.size());
         }
 
