@@ -48,6 +48,7 @@ impl DualArrayDequeue {
     pub fn remove(&mut self, i: usize) -> u32 {
         let x;
         println!("self.front.size(): {}", self.front.size());
+        println!("self.back.size(): {})", self.back.size());
         if i < self.front.size() {
             println!("i < self.front.size(): {}", i < self.front.size());
             x = self.front.remove(self.front.size() - i - 1);
