@@ -39,7 +39,7 @@ impl DualArrayDequeue {
         if i < self.front.size() {
             self.front.add(self.front.size() - i, x);
         } else {
-            self.back.add(self.front.size(), x);
+            self.back.add(i - self.front.size(), x);
         }
 
         self.balance();
