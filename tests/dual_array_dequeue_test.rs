@@ -56,9 +56,12 @@ mod remove_method_test {
     fn remove_selected_value() {
         let mut daq = DualArrayDequeue::new();
         daq.add(0, 1);
-        assert_eq!(daq.size(), 1);
-        assert_eq!(daq.get(0), 1);
+        daq.add(0, 2);
+        daq.add(0, 3);
+
+        assert_eq!(daq.size(), 3);
+        assert_eq!(daq.get(0), 3);
         let ret = daq.remove(0);
-        assert_eq!(ret, 1);
+        assert_eq!(ret, 3);
     }
 }
