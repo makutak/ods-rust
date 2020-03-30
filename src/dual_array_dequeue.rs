@@ -61,5 +61,7 @@ impl DualArrayDequeue {
         x
     }
 
-    pub fn balance(&mut self) {}
+    pub fn balance(&mut self) {
+        println!("balance!!!");
+    }
 }
