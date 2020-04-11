@@ -58,10 +58,9 @@ mod remove_method_test {
         daq.add(0, 1);
         daq.add(0, 2);
         daq.add(0, 3);
-
-        assert_eq!(daq.size(), 3);
-        assert_eq!(daq.get(0), 3);
+        daq.add(0, 4);
+        assert_eq!(daq.size(), 4);
+        assert_eq!(daq.get(0), 4);
         let ret = daq.remove(0);
-        assert_eq!(ret, 3);
     }
 }
