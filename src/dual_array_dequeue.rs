@@ -52,7 +52,7 @@ impl DualArrayDequeue {
         } else {
             x = self.back.remove(i - self.front.size());
         }
-        //self.balance();
+        self.balance();
         x
     }
 
