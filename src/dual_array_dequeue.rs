@@ -47,21 +47,29 @@ impl DualArrayDequeue {
 
     pub fn remove(&mut self, i: usize) -> u32 {
         let x;
-        println!("self.front.size(): {}", self.front.size());
-        println!("self.back.size(): {})", self.back.size());
         if i < self.front.size() {
-            println!("i < self.front.size(): {}", i < self.front.size());
             x = self.front.remove(self.front.size() - i - 1);
         } else {
-            println!("i < self.front.size(): {}", i < self.front.size());
-            println!("i - self.front.size(): {})", i - self.front.size());
             x = self.back.remove(i - self.front.size());
         }
-
+        //self.balance();
         x
     }
 
     pub fn balance(&mut self) {
-        println!("balance!!!!!!!!!!!!!!!!");
+        let n = self.size();
+        let mid = n / 2;
+        if 3 * self.front.size() < self.back.size() || 3 * self.back.size() < self.front.size() {
+            let mut f = ArrayStack::new();
+            for i in 0..mid {
+                f.add(i, self.get(mid - i - 1));
+            }
+            let mut b = ArrayStack::new();
+            for i in 0..n - mid {
+                b.add(i, self.get(mid + i));
+            }
+            self.front = f;
+            self.back = b;
+        }
     }
 }
