@@ -15,7 +15,7 @@ impl RootishArrayStack {
         }
     }
 
-    pub fn i2b(usize: i) {}
+    pub fn i2b(&mut self, i: usize) {}
 
-    pub fn get(usize: i) {}
+    pub fn get(&mut self, i: usize) {}
 }
