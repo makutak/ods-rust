@@ -13,3 +13,11 @@ mod new_method_tests {
         assert_eq!(ras.n, 0);
     }
 }
+
+mod i2b_method_tests {
+    use ods_rust::rootish_array_stack::*;
+    #[test]
+    fn test_i2b() {
+        assert_eq!(1, 2);
+    }
+}
