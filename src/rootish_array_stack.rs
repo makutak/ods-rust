@@ -1,4 +1,6 @@
 use super::array_stack::*;
+use math::round;
+
 #[derive(Debug)]
 pub struct RootishArrayStack {
     pub blocks: ArrayStack,
@@ -15,7 +17,9 @@ impl RootishArrayStack {
         }
     }
 
-    pub fn i2b(&mut self, i: usize) {}
+    pub fn i2b(&mut self, i: usize) {
+        round::ceil((-3.0 + ((9 + 8 * i) as f64).sqrt()) / 2.0)
+    }
 
     pub fn get(&mut self, i: usize) {}
 }
