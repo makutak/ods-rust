@@ -3,13 +3,14 @@ use math::round;
 
 #[derive(Debug)]
 pub struct RootishArrayStack {
-    pub blocks: ArrayStack,
+    pub blocks: Vec<ArrayStack>,
     pub n: usize,
 }
 
 impl RootishArrayStack {
     pub fn new() -> Self {
-        let blocks = ArrayStack::new();
+        let ary = ArrayStack::new();
+        let blocks = vec![ary];
         let n = 0;
         Self {
             blocks: blocks,
@@ -21,5 +22,9 @@ impl RootishArrayStack {
         round::ceil((-3.0 + ((9 + 8 * i) as f64).sqrt()) / 2.0, 0) as i64
     }
 
-    pub fn get(&mut self, i: usize) {}
+    pub fn get(&mut self, i: usize) {
+        let b = Self::i2b(i) as usize;
+        let j = i - b * (b + 1) / 2;
+        self.blocks.get(b)[j]
+    }
 }
