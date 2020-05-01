@@ -25,6 +25,10 @@ impl RootishArrayStack {
     pub fn get(&mut self, i: usize) {
         let b = Self::i2b(i) as usize;
         let j = i - b * (b + 1) / 2;
+        println!("#######################");
+        println!("b: {}", b);
+        println!("j: {}", j);
+        println!("#######################");
         self.blocks.get(b)[j]
     }
 }
