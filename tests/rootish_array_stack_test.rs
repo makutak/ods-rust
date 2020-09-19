@@ -4,7 +4,7 @@ mod new_method_tests {
     #[test]
     fn blocks_is_empty() {
         let ras = RootishArrayStack::new();
-        assert_eq!(ras.blocks.size(), 0);
+        assert_eq!(ras.blocks.len(), 1);
     }
 
     #[test]
