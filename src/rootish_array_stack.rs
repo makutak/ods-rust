@@ -9,13 +9,19 @@ pub struct RootishArrayStack {
 
 impl RootishArrayStack {
     pub fn new() -> Self {
-        let blocks = vec![vec![]];
+        let blocks = vec![];
         let n = 0;
         Self {
             blocks: blocks,
             n: n,
         }
     }
+
+    fn grow(&mut self) {
+        self.blocks.push(vec![0; self.blocks.len() + 1]);
+    }
+
+    fn shrink() {}
 
     pub fn i2b(i: usize) -> i64 {
         round::ceil((-3.0 + ((9 + 8 * i) as f64).sqrt()) / 2.0, 0) as i64
@@ -34,4 +40,27 @@ impl RootishArrayStack {
         self.blocks[b][j] = x;
         y
     }
+
+    pub fn add(&mut self, i: usize, x: u32) {
+        let r = self.blocks.len();
+
+        if r * (r + 1) / 2 < self.n + 1 {
+            self.grow();
+        }
+        self.n += 1;
+
+        for j in (i..self.n).rev() {
+            let y = self.get(j - 1);
+            self.set(i, y);
+        }
+        self.set(i, x);
+    }
+
+    pub fn remove() {}
+
+    pub fn size(&mut self) -> usize {
+        self.n
+    }
+
+    pub fn clear() {}
 }
