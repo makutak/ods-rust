@@ -26,4 +26,12 @@ impl RootishArrayStack {
         let j = i - b * (b + 1) / 2;
         self.blocks[b][j]
     }
+
+    pub fn set(&mut self, i: usize, x: u32) -> u32 {
+        let b = Self::i2b(i) as usize;
+        let j = i - b * (b + 1) / 2;
+        let y = self.blocks[b][j];
+        self.blocks[b][j] = x;
+        y
+    }
 }
