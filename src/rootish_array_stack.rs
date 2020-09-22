@@ -54,8 +54,7 @@ impl RootishArrayStack {
             self.grow();
         }
         self.n += 1;
-
-        for j in (i..self.n).rev() {
+        for j in (i..self.n - 1).rev() {
             let y = self.get(j - 1);
             self.set(i, y);
         }

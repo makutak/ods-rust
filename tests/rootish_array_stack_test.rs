@@ -26,3 +26,43 @@ mod i2b_method_tests {
         assert_eq!(RootishArrayStack::i2b(6), 3);
     }
 }
+
+mod add_tests {
+    use ods_rust::rootish_array_stack::*;
+    #[test]
+    fn test_add() {
+        let mut ras = RootishArrayStack::new();
+        ras.add(0, 1);
+        assert_eq!(ras.size(), 1);
+        ras.add(1, 2);
+        assert_eq!(ras.size(), 2);
+    }
+}
+
+mod get_test {
+    use ods_rust::rootish_array_stack::*;
+    #[test]
+    fn test_get_1() {
+        let mut ras = RootishArrayStack::new();
+        ras.add(0, 1);
+        assert_eq!(ras.get(0), 1);
+    }
+
+    #[test]
+    fn test_get_2() {
+        let mut ras = RootishArrayStack::new();
+        ras.add(0, 0);
+        ras.add(1, 1);
+        ras.add(2, 2);
+        assert_eq!(ras.get(1), 1);
+    }
+
+    #[test]
+    fn test_get_3() {
+        let mut ras = RootishArrayStack::new();
+        ras.add(0, 0);
+        ras.add(1, 1);
+        ras.add(2, 2);
+        assert_eq!(ras.get(2), 2);
+    }
+}
