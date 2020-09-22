@@ -21,7 +21,13 @@ impl RootishArrayStack {
         self.blocks.push(vec![0; self.blocks.len() + 1]);
     }
 
-    fn shrink() {}
+    fn shrink(&mut self) {
+        let mut r = self.blocks.len();
+        while r > 0 && (r - 2) * (r - 1) / 2 >= self.n {
+            self.blocks.remove(self.blocks.len() - 1);
+            r -= 1;
+        }
+    }
 
     pub fn i2b(i: usize) -> i64 {
         round::ceil((-3.0 + ((9 + 8 * i) as f64).sqrt()) / 2.0, 0) as i64
