@@ -66,3 +66,29 @@ mod get_test {
         assert_eq!(ras.get(2), 2);
     }
 }
+
+mod remove_test {
+    use ods_rust::rootish_array_stack::*;
+    #[test]
+    fn test_remove_1() {
+        let mut ras = RootishArrayStack::new();
+        ras.add(0, 1);
+        assert_eq!(ras.get(0), 1);
+        ras.remove(0);
+        assert_eq!(ras.size(), 0);
+    }
+
+    #[test]
+    fn test_remove_2() {
+        let mut ras = RootishArrayStack::new();
+        ras.add(0, 0);
+        ras.add(1, 1);
+        ras.add(2, 2);
+        assert_eq!(ras.get(2), 2);
+        assert_eq!(ras.size(), 3);
+
+        ras.remove(1);
+        assert_eq!(ras.size(), 2);
+        assert_eq!(ras.get(1), 2);
+    }
+}

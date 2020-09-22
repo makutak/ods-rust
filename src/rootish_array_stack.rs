@@ -22,8 +22,8 @@ impl RootishArrayStack {
     }
 
     fn shrink(&mut self) {
-        let mut r = self.blocks.len();
-        while r > 0 && (r - 2) * (r - 1) / 2 >= self.n {
+        let mut r = self.blocks.len() as i32;
+        while r > 0 && (r - 2) * (r - 1) / 2 >= self.n as i32 {
             self.blocks.remove(self.blocks.len() - 1);
             r -= 1;
         }
@@ -61,7 +61,20 @@ impl RootishArrayStack {
         self.set(i, x);
     }
 
-    pub fn remove() {}
+    pub fn remove(&mut self, i: usize) -> u32 {
+        let x = self.get(i);
+        for j in i..self.n - 1 {
+            let got = self.get(j + 1);
+            self.set(j, got);
+        }
+        self.n -= 1;
+
+        let r = self.blocks.len() as i32;
+        if ((r - 2) * (r - 1)) / 2 >= self.n as i32 {
+            self.shrink()
+        }
+        x
+    }
 
     pub fn size(&mut self) -> usize {
         self.n
