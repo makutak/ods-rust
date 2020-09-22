@@ -80,5 +80,8 @@ impl RootishArrayStack {
         self.n
     }
 
-    pub fn clear() {}
+    pub fn clear(&mut self) {
+        self.blocks.clear();
+        self.n = 0;
+    }
 }

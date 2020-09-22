@@ -92,3 +92,20 @@ mod remove_test {
         assert_eq!(ras.get(1), 2);
     }
 }
+
+mod cleaer_test {
+    use ods_rust::rootish_array_stack::*;
+    #[test]
+    fn test_clear() {
+        let mut ras = RootishArrayStack::new();
+        let num = 10000;
+        for i in 0..num {
+            ras.add(i, i as u32);
+        }
+        assert_eq!(ras.size(), num);
+
+        ras.clear();
+        assert_eq!(ras.size(), 0);
+        assert_eq!(ras.blocks.len(), 0);
+    }
+}
