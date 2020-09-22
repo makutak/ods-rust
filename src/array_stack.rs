@@ -54,7 +54,7 @@ impl ArrayStack {
             idx if idx < usize::min_value() || idx > self.n => panic!("IndexError!!"),
             _ => {
                 let x = self.a[i];
-                for j in i..self.n {
+                for j in i..self.n - 1 {
                     self.a[j] = self.a[j + 1];
                 }
                 self.n -= 1;
